@@ -17,7 +17,7 @@ class ItemsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create item" do
     assert_difference('Item.count') do
-      post items_url, params: { item: { amazon_url: @item.amazon_url, asin: @item.asin, brand: @item.brand, description: @item.description, group: @item.group, main_image: @item.main_image, price: @item.price, stocks: @item.stocks, title: @item.title } }
+      post items_url, params: { item: { active: @item.active, amazon_url: @item.amazon_url, asin: @item.asin, brand_id: @item.brand_id, description: @item.description, group: @item.group, main_image: @item.main_image, price: @item.price, stocks: @item.stocks, title: @item.title } }
     end
 
     assert_redirected_to item_url(Item.last)
@@ -34,7 +34,7 @@ class ItemsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update item" do
-    patch item_url(@item), params: { item: { amazon_url: @item.amazon_url, asin: @item.asin, brand: @item.brand, description: @item.description, group: @item.group, main_image: @item.main_image, price: @item.price, stocks: @item.stocks, title: @item.title } }
+    patch item_url(@item), params: { item: { active: @item.active, amazon_url: @item.amazon_url, asin: @item.asin, brand_id: @item.brand_id, description: @item.description, group: @item.group, main_image: @item.main_image, price: @item.price, stocks: @item.stocks, title: @item.title } }
     assert_redirected_to item_url(@item)
   end
 

@@ -37,8 +37,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :brand %>
-    <%= form.text_field :brand, id: :item_brand %>
+    <%= form.label :brand_id %>
+    <%= form.text_field :brand_id, id: :item_brand_id %>
   </div>
 
   <div class="field">
@@ -54,6 +54,11 @@
   <div class="field">
     <%= form.label :stocks %>
     <%= form.number_field :stocks, id: :item_stocks %>
+  </div>
+
+  <div class="field">
+    <%= form.label :active %>
+    <%= form.number_field :active, id: :item_active %>
   </div>
 
   <div class="actions">

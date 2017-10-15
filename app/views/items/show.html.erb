@@ -21,7 +21,7 @@
 </p>
 
 <p>
-  <strong>url:</strong>
+  <strong>Amazon url:</strong>
   <%= @item.amazon_url %>
 </p>
 
@@ -43,6 +43,11 @@
 <p>
   <strong>Stocks:</strong>
   <%= @item.stocks %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @item.active %>
 </p>
 
 <%= link_to 'Edit', edit_item_path(@item) %> |
