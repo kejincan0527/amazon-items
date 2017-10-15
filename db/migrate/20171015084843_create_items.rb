@@ -1,7 +1,7 @@
 class CreateItems < ActiveRecord::Migration[5.1]
   def change
     create_table :items do |t|
-      t.string :asin
+      t.string :asin, null: false
       t.text :title
       t.text :description
       t.integer :price
@@ -14,5 +14,6 @@ class CreateItems < ActiveRecord::Migration[5.1]
 
       t.timestamps
     end
+    add_index :items, :asin, :unique => true, :name => 'items_uniq_index'
   end
 end

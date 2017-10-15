@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20171015084843) do
   end
 
   create_table "items", force: :cascade do |t|
-    t.string "asin"
+    t.string "asin", null: false
     t.text "title"
     t.text "description"
     t.integer "price"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20171015084843) do
     t.integer "active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["asin"], name: "items_uniq_index", unique: true
     t.index ["brand_id"], name: "index_items_on_brand_id"
   end
 
