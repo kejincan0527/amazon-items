@@ -38,6 +38,7 @@ class Batch::AmazonSearch
         begin
           res = search(brand.name)
         rescue Amazon::RequestError => ex2
+          puts ex2.message
           puts 'Amazon::RequestError:: Break running.'
           break
         end
@@ -54,6 +55,7 @@ class Batch::AmazonSearch
           )
         else
           puts 'ASIN: ' + asin + ' has already existed.'
+          # TODO: update item
         end
       end
       wait_seconds = 10
