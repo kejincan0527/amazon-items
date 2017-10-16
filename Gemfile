@@ -56,4 +56,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'amazon-ecs'
 
+gem 'bootstrap-sass'
+gem 'jquery-rails'
+
 ruby '2.4.2'
