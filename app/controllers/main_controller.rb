@@ -7,7 +7,7 @@ class MainController < ApplicationController
     brand = Brand.find(params[:brand_id])
     @header = 'ブランド'
     @subheader = brand.name
-    @items = brand.items.page(params[:page]).per(1)
+    @items = brand.items.page(params[:page])
     render :template => 'main/list'
   end
 
