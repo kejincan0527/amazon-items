@@ -59,5 +59,6 @@ gem 'amazon-ecs'
 #gem 'bootstrap-sass'
 gem 'bootstrap', '~> 4.0.0.beta'
 gem 'jquery-rails'
+gem 'kaminari'
 
 ruby '2.4.2'
