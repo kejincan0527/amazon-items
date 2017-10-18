@@ -1,5 +1,5 @@
 class BrandsController < ApplicationController
-  http_basic_authenticate_with name: 'user', password: 'password' if Rails.env.production?
+  http_basic_authenticate_with name: ENV['BASIC_AUTH_NAME'], password: ENV['BASIC_AUTH_PASS'] if Rails.env.production?
   before_action :set_brand, only: [:show, :edit, :update, :destroy]
 
   # GET /brands

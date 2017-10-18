@@ -60,5 +60,6 @@ gem 'amazon-ecs'
 gem 'bootstrap', '~> 4.0.0.beta'
 gem 'jquery-rails'
 gem 'kaminari'
+gem 'dotenv-rails'
 
 ruby '2.4.2'
