@@ -15,5 +15,8 @@ class MainController < ApplicationController
   end
 
   def detail
+    @item = Item.find(params[:item_id])
+    @header = @item.brand.name
+    @subheader = @item.title
   end
 end

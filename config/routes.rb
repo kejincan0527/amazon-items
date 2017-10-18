@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   get 'main/search'
 
-  get 'main/detail'
+  get 'main/detail/:item_id', to: 'main#detail'
 
   resources :items
   resources :brands
