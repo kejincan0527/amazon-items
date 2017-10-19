@@ -4,64 +4,84 @@
       <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
 
       <ul>
-      <% item.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% item.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :asin %>
-    <%= form.text_field :asin, id: :item_asin %>
+  <div class="form-group row">
+    <%= form.label :asin, class: "col-2 col-form-label" %>
+    <div class="col-10">
+      <%= form.text_field :asin, id: :item_asin, class: "form-control" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_area :title, id: :item_title %>
+  <div class="form-group row">
+    <%= form.label :title, class: "col-2 col-form-label" %>
+    <div class="col-10">
+      <%= form.text_area :title, id: :item_title, class: "form-control" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description, id: :item_description %>
+  <div class="form-group row">
+    <%= form.label :description, class: "col-2 col-form-label" %>
+    <div class="col-10">
+      <%= form.text_area :description, id: :item_description, class: "form-control" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.number_field :price, id: :item_price %>
+  <div class="form-group row">
+    <%= form.label :price, class: "col-2 col-form-label" %>
+    <div class="col-10">
+      <%= form.number_field :price, id: :item_price, class: "form-control" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :amazon_url %>
-    <%= form.text_area :amazon_url, id: :item_amazon_url %>
+  <div class="form-group row">
+    <%= form.label :amazon_url, class: "col-2 col-form-label" %>
+    <div class="col-10">
+      <%= form.text_area :amazon_url, id: :item_amazon_url, class: "form-control" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :brand_id %>
-    <%= form.number_field :brand_id, id: :item_brand_id %>
+  <div class="form-group row">
+    <%= form.label :brand_id, class: "col-2 col-form-label" %>
+    <div class="col-10">
+      <%= form.number_field :brand_id, id: :item_brand_id, class: "form-control" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :group %>
-    <%= form.text_field :group, id: :item_group %>
+  <div class="form-group row">
+    <%= form.label :group, class: "col-2 col-form-label" %>
+    <div class="col-10">
+      <%= form.text_field :group, id: :item_group, class: "form-control" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :main_image %>
-    <%= form.text_area :main_image, id: :item_main_image %>
+  <div class="form-group row">
+    <%= form.label :main_image, class: "col-2 col-form-label" %>
+    <div class="col-10">
+      <%= form.text_area :main_image, id: :item_main_image, class: "form-control" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :stocks %>
-    <%= form.number_field :stocks, id: :item_stocks %>
+  <div class="form-group row">
+    <%= form.label :stocks, class: "col-2 col-form-label" %>
+    <div class="col-10">
+      <%= form.number_field :stocks, id: :item_stocks, class: "form-control" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :active %>
-    <%= form.number_field :active, id: :item_active %>
+  <div class="form-group row">
+    <%= form.label :active, class: "col-2 col-form-label" %>
+    <div class="col-10">
+      <%= form.number_field :active, id: :item_active, class: "form-control" %>
+    </div>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit :class => "btn btn-lg btn-secondary btn-block" %>
   </div>
 <% end %>
