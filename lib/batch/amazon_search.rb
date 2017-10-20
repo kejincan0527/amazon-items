@@ -51,7 +51,13 @@ class Batch::AmazonSearch
           Item.create(
             asin: asin,
             title: a_item.get('ItemAttributes/Title'),
-            brand: brand
+            description: brand.name + " iPhoneケース",
+            price: a_item.get('ItemAttributes/ListPrice/Amount'),
+            amazon_url: a_item.get('DetailPageURL'),
+            brand: brand,
+            main_image: a_item.get('MediumImage/URL'),
+            stocks: a_item.get('OfferSummary/TotalNew'),
+            active: 0
           )
         else
           puts 'ASIN: ' + asin + ' has already existed.'
