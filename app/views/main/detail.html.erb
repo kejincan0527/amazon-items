@@ -20,7 +20,11 @@
   <div class="row">
 
     <div class="col-md-6">
-      <%= image_tag(@item.main_image, :class => "img-fluid") %>
+      <% begin %>
+        <%= image_tag(@item.wrapped_image, :class => "card-img-top") %>
+      <% rescue => ex %>
+        <%= image_tag(default_image, :class => "card-img-top") %>
+      <% end %>
     </div>
 
     <div class="col-md-6">
@@ -33,38 +37,6 @@
 
       <!-- Call to Action Section -->
       <a class="btn btn-lg btn-secondary btn-block" href="<%= @item.amazon_url %>" target="_blank">もっと見る</a>
-    </div>
-
-  </div>
-  <!-- /.row -->
-
-  <!-- Related Projects Row -->
-  <h3 class="my-4">Related Projects</h3>
-
-  <div class="row">
-
-    <div class="col-md-3 col-sm-6 mb-4">
-      <a href="#">
-        <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-      </a>
-    </div>
-
-    <div class="col-md-3 col-sm-6 mb-4">
-      <a href="#">
-        <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-      </a>
-    </div>
-
-    <div class="col-md-3 col-sm-6 mb-4">
-      <a href="#">
-        <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-      </a>
-    </div>
-
-    <div class="col-md-3 col-sm-6 mb-4">
-      <a href="#">
-        <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-      </a>
     </div>
 
   </div>

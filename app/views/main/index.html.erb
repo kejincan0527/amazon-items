@@ -9,22 +9,22 @@
       <!-- Slide One - Set the background image for this slide in the line below -->
       <div class="carousel-item active" style="background-image: url('<%= asset_path 'famous_items.jpg' %>')">
         <div class="carousel-caption d-none d-md-block">
-          <h3>人気のアイテム</h3>
-          <p>This is a description for the first slide.</p>
+          <!-- <h3>人気のアイテム</h3> -->
+          <!-- <p>This is a description for the first slide.</p> -->
         </div>
       </div>
       <!-- Slide Two - Set the background image for this slide in the line below -->
       <div class="carousel-item" style="background-image: url('<%= asset_path 'new_items.jpg' %>')">
         <div class="carousel-caption d-none d-md-block">
-          <h3>新着アイテム</h3>
-          <p>This is a description for the second slide.</p>
+          <!-- <h3>新着アイテム</h3> -->
+          <!-- <p>This is a description for the first slide.</p> -->
         </div>
       </div>
       <!-- Slide Three - Set the background image for this slide in the line below -->
       <div class="carousel-item" style="background-image: url('<%= asset_path 'rare_items.jpg' %>')">
         <div class="carousel-caption d-none d-md-block">
-          <h3>特徴的なアイテム</h3>
-          <p>This is a description for the third slide.</p>
+          <!-- <h3>特徴的なアイテム</h3> -->
+          <!-- <p>This is a description for the first slide.</p> -->
         </div>
       </div>
     </div>
@@ -42,19 +42,28 @@
 <div class="container">
 
   <!-- Portfolio Section -->
-  <h1 class="my-4">人気のブランド</h1>
+  <h1 class="my-4">「<%= $site_title %>」へようこそ！</h1>
+  <p>
+  「<%= $site_title %>」は、ブランド物のiPhoneケースを紹介するサイトです。
+  </p>
+
+  <h2>人気のブランド</h2>
 
   <div class="row">
-    <% @brands.each do |brand| %>
+    <% active_brands.each do |brand| %>
       <div class="col-lg-4 col-sm-6 portfolio-item">
         <div class="card h-100">
-          <%= link_to image_tag(brand.items.first.main_image, :class => "card-img-top"), controller: "main", action: "brand", brand_id: brand.id %>
-      <div class="card-body">
-        <h4 class="card-title">
-          <%= link_to brand.name, controller: "main", action: "brand", brand_id: brand.id %>
-        </h4>
-        <p class="card-text"></p>
-      </div>
+          <% begin %>
+            <%= link_to image_tag(brand.items.first.wrapped_image, :class => "card-img-top"), controller: "main", action: "brand", brand_id: brand.id %>
+          <% rescue => ex %>
+            <%= link_to image_tag(default_image, :class => "card-img-top"), controller: "main", action: "brand", brand_id: brand.id %>
+          <% end %> 
+          <div class="card-body">
+            <h4 class="card-title">
+              <%= link_to brand.name, controller: "main", action: "brand", brand_id: brand.id %>
+            </h4>
+            <p class="card-text"></p>
+          </div>
         </div>
       </div>
     <% end %>

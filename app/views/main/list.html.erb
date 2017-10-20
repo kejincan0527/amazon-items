@@ -17,7 +17,11 @@
     <% @items.each do |item| %>
       <div class="col-lg-4 col-sm-6 portfolio-item">
         <div class="card h-100">
-          <%= link_to image_tag(item.main_image, :class => "card-img-top"), controller: "main", action: "detail", item_id: item.id %>
+          <% begin %>
+            <%= link_to image_tag(item.wrapped_image, :class => "card-img-top"), controller: "main", action: "detail", item_id: item.id %>
+          <% rescue => ex %>
+            <%= link_to image_tag(default_image, :class => "card-img-top"), controller: "main", action: "detail", item_id: item.id %>
+          <% end %>
           <div class="card-body">
             <h4 class="card-title">
               <%= link_to item.title, controller: "main", action: "detail", item_id: item.id %>
