@@ -24,3 +24,12 @@ body {
 .portfolio-item {
   margin-bottom: 30px;
 }
+
+.portfolio-item-body {
+  overflow: hidden;
+}
+
+.portfolio-item-img {
+  width: auto;
+  height: 300px;
+}
