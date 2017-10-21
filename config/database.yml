@@ -80,4 +80,9 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  url: <%= ENV['DATABASE_URL'] %>
+  <<: *default
+  database: amazon-items_production
+  username: amazon-items
+  password: <%= ENV['AMAZON-ITEMS_DATABASE_PASSWORD'] %>
+
+

@@ -8,4 +8,12 @@ class Item < ApplicationRecord
     end
     return wrap_image
   end
+
+  def formatted_price
+    if price != nil && price.integer?
+      return price.to_s(:delimited)
+    else
+      return '---'
+    end
+  end
 end

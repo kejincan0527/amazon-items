@@ -26,8 +26,8 @@
             <h4 class="card-title">
               <%= link_to item.title, controller: "main", action: "detail", item_id: item.id %>
             </h4>
-            <h5><%= item.price.to_s(:delimited) %>円</h5>
-            <p class="card-text"><%= item.description %></p>
+            <h5><%= item.formatted_price %>円</h5>
+            <p class="card-text"><%= item.description.truncate(120) %></p>
           </div>
         </div>
       </div>

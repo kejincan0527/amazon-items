@@ -33,7 +33,7 @@
       <h3 class="my-3">商品詳細</h3>
       <p><%= @item.description %></p>
       <h3 class="my-3">値段</h3>
-      <p><%= @item.price.to_s(:delimited) %>円</p>
+      <p><%= @item.formatted_price %>円</p>
 
       <!-- Call to Action Section -->
       <a class="btn btn-lg btn-secondary btn-block" href="<%= @item.amazon_url %>" target="_blank">もっと見る</a>

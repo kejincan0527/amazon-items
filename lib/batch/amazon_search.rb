@@ -3,9 +3,9 @@ require 'amazon/ecs'
 class Batch::AmazonSearch
   def self.init
     Amazon::Ecs.configure do |options|
-      options[:AWS_access_key_id] = Rails.application.secrets.amazon_ecs_access_key_id
-      options[:AWS_secret_key] = Rails.application.secrets.amazon_ecs_secret_access_key
-      options[:associate_tag] = Rails.application.secrets.amazon_ecs_associate_tag
+      options[:AWS_access_key_id] = ENV["AWS_ACCESS_KEY_ID"]
+      options[:AWS_secret_key] = ENV["AWS_SECRET_ACCESS_KEY"]
+      options[:associate_tag] = ENV["AWS_ASSOCIATE_TAG"]
     end
   end
 
@@ -23,7 +23,15 @@ class Batch::AmazonSearch
     return res
   end
 
+  def self.remove_tags(s)
+    if s == nil
+      return nil
+    end
+    return s.gsub(/&lt;/, "<").gsub(/&gt;/, ">").gsub(/<[^>]+>/, '')
+  end
+
   def self.run
+    Dotenv.overload
     puts "Execute: AmazonSearch.run"
     init()
     wait_seconds = 0
@@ -45,17 +53,22 @@ class Batch::AmazonSearch
       end
       res.items.each do |a_item|
         asin = a_item.get('ASIN')
+        p_brand = a_item.get('ItemAttributes/Brand')
+        if !p_brand.downcase.include?(brand.name.downcase)
+          next
+        end
         puts 'ASIN: ' + asin + ' is processing.'
         p_item = Item.find_by_asin(asin)
         if p_item.nil?
           Item.create(
             asin: asin,
-            title: a_item.get('ItemAttributes/Title'),
-            description: brand.name + " iPhoneケース",
-            price: a_item.get('ItemAttributes/ListPrice/Amount'),
+            title: remove_tags(a_item.get('ItemAttributes/Title')),
+            description: remove_tags(a_item.get('EditorialReviews/EditorialReview/Content')) || brand.name + " iPhoneケース",
+            price: a_item.get('ItemAttributes/ListPrice/Amount') || a_item.get('OfferSummary/LowestNewPrice/Amount') || a_item.get('OfferSummary/LowestUsedPrice/Amount'),
             amazon_url: a_item.get('DetailPageURL'),
             brand: brand,
-            main_image: a_item.get('MediumImage/URL'),
+            group: p_brand,
+            main_image: a_item.get('LargeImage/URL'),
             stocks: a_item.get('OfferSummary/TotalNew'),
             active: 0
           )
