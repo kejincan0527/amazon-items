@@ -41,8 +41,8 @@ class Batch::AmazonSearch
       begin
         res = search(brand.name)
       rescue Amazon::RequestError => ex
-        puts 'Amazon::RequestError:: sleep 20 seconds.'
-        sleep(20)
+        puts 'Amazon::RequestError:: sleep 60 seconds.'
+        sleep(60)
         begin
           res = search(brand.name)
         rescue Amazon::RequestError => ex2
@@ -77,7 +77,7 @@ class Batch::AmazonSearch
           # TODO: update item
         end
       end
-      wait_seconds = 10
+      wait_seconds = 30
     end
   end
 end
