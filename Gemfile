@@ -61,5 +61,6 @@ gem 'bootstrap', '~> 4.0.0.beta'
 gem 'jquery-rails'
 gem 'kaminari'
 gem 'dotenv-rails'
+gem 'rakuten_web_service'
 
 ruby '2.4.2'
