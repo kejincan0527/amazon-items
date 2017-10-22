@@ -1,0 +1,46 @@
+<!-- Page Content -->
+<div class="container">
+
+  <!-- Page Heading/Breadcrumbs -->
+  <h1 class="mt-4 mb-3">
+    <small><%= @subheader %></small>
+  </h1>
+
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <%= link_to 'Home', root_path %>
+    </li>
+    <li class="breadcrumb-item">
+      <%= link_to @header, controller: "main", action: "brand", brand_id: @item.brand.id %>
+    </li>
+    <li class="breadcrumb-item active">商品詳細</li>
+  </ol>
+
+  <!-- Portfolio Item Row -->
+  <div class="row">
+
+    <div class="col-md-6">
+      <% begin %>
+        <%= image_tag(@item.wrapped_image, :class => "card-img-top") %>
+      <% rescue => ex %>
+        <%= image_tag(default_image, :class => "card-img-top") %>
+      <% end %>
+    </div>
+
+    <div class="col-md-6">
+      <h3 class="my-3">商品名</h3>
+      <p><%= @item.title %></p>
+      <h3 class="my-3">商品詳細</h3>
+      <p><%= @item.description %></p>
+      <h3 class="my-3">値段</h3>
+      <p><%= @item.formatted_price %>円</p>
+
+      <!-- Call to Action Section -->
+      <a class="btn btn-lg btn-secondary btn-block" href="<%= @item.amazon_url %>" target="_blank">もっと見る</a>
+    </div>
+
+  </div>
+  <!-- /.row -->
+
+</div>
+<!-- /.container -->

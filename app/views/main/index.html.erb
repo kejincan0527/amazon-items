@@ -1,0 +1,75 @@
+<header>
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+      <!-- Slide One - Set the background image for this slide in the line below -->
+      <div class="carousel-item active" style="background-image: url('<%= asset_path 'famous_items.jpg' %>')">
+        <div class="carousel-caption d-none d-md-block">
+          <!-- <h3>人気のアイテム</h3> -->
+          <!-- <p>This is a description for the first slide.</p> -->
+        </div>
+      </div>
+      <!-- Slide Two - Set the background image for this slide in the line below -->
+      <div class="carousel-item" style="background-image: url('<%= asset_path 'new_items.jpg' %>')">
+        <div class="carousel-caption d-none d-md-block">
+          <!-- <h3>新着アイテム</h3> -->
+          <!-- <p>This is a description for the first slide.</p> -->
+        </div>
+      </div>
+      <!-- Slide Three - Set the background image for this slide in the line below -->
+      <div class="carousel-item" style="background-image: url('<%= asset_path 'rare_items.jpg' %>')">
+        <div class="carousel-caption d-none d-md-block">
+          <!-- <h3>特徴的なアイテム</h3> -->
+          <!-- <p>This is a description for the first slide.</p> -->
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- Portfolio Section -->
+  <h1 class="my-4">「<%= $site_title %>」へようこそ！</h1>
+  <p>
+  「<%= $site_title %>」は、ブランド物のiPhoneケースを紹介するサイトです。
+  </p>
+
+  <h2>人気のブランド</h2>
+
+  <div class="row">
+    <% active_brands.each do |brand| %>
+      <div class="col-lg-4 col-sm-6 portfolio-item">
+        <div class="card h-100 portfolio-item-body">
+          <% begin %>
+            <%= link_to image_tag(brand.items.first.wrapped_image, :class => "card-img-top portfolio-item-img"), controller: "main", action: "brand", brand_id: brand.id %>
+          <% rescue => ex %>
+            <%= link_to image_tag(default_image, :class => "card-img-top portfolio-item-img"), controller: "main", action: "brand", brand_id: brand.id %>
+          <% end %> 
+          <div class="card-body">
+            <h4 class="card-title">
+              <%= link_to brand.name, controller: "main", action: "brand", brand_id: brand.id %>
+            </h4>
+            <p class="card-text"></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <!-- /.row -->
+
+</div>
+<!-- /.container -->
+

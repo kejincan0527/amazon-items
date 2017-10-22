@@ -81,6 +81,9 @@ test:
 #
 production:
   <<: *default
-  database: amazon-items_production
-  username: amazon-items
-  password: <%= ENV['AMAZON-ITEMS_DATABASE_PASSWORD'] %>
+  host: <%= ENV['AMAZON_ITEMS_DATABASE_HOST'] %>
+  port: <%= ENV['AMAZON_ITEMS_DATABASE_PORT'] %>
+  database: <%= ENV['AMAZON_ITEMS_DATABASE_DATABASE'] %>
+  username: <%= ENV['AMAZON_ITEMS_DATABASE_USERNAME'] %>
+  password: <%= ENV['AMAZON_ITEMS_DATABASE_PASSWORD'] %>
+

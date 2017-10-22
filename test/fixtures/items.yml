@@ -6,10 +6,11 @@ one:
   description: MyText
   price: 1
   amazon_url: MyText
-  brand: MyString
+  brand: one
   group: MyString
   main_image: MyText
   stocks: 1
+  active: 1
 
 two:
   asin: MyString
@@ -17,7 +18,8 @@ two:
   description: MyText
   price: 1
   amazon_url: MyText
-  brand: MyString
+  brand: two
   group: MyString
   main_image: MyText
   stocks: 1
+  active: 1
