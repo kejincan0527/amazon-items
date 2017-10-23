@@ -5,7 +5,20 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    @items = Item.all.page(params[:page])
+    @search_brand_name = params[:brand_name]
+    @search_item_title = params[:item_title]
+    @search_item_active = params[:item_active]
+    @items = Item.all
+    if @search_brand_name != nil && @search_brand_name.length > 0
+      @items = @items.where(:brand => Brand.find_by_name(@search_brand_name))
+    end
+    if @search_item_title != nil && @search_item_title.length > 0
+      @items = @items.where("title like '%#{@search_item_title}%'")
+    end
+    if @search_item_active != nil && @search_item_active.length > 0
+      @items = @items.where(:active => @search_item_active)
+    end
+    @items = @items.page(params[:page])
   end
 
   # GET /items/1
