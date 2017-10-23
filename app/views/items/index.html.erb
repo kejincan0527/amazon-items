@@ -21,7 +21,13 @@
         <td><%= item.asin %></td>
         <td><%= link_to item.title.truncate(50), item.amazon_url %></td>
         <td><%= item.brand.name %></td>
-        <td><%= image_tag item.main_image, :height => 100 %></td>
+        <td>
+          <% begin %>
+            <%= image_tag item.wrapped_image, :height => 100 %>
+          <% rescue => ex %>
+            <%= image_tag default_image, :height => 100 %>
+          <% end %>
+        </td>
         <td><%= item.active %></td>
         <td><%= link_to 'Show', item %></td>
         <td><%= link_to 'Edit', edit_item_path(item) %></td>

@@ -1,54 +1,55 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <p id="notice"><%= notice %></p>
 
-<p>
+  <p>
   <strong>Asin:</strong>
   <%= @item.asin %>
-</p>
+  </p>
 
-<p>
+  <p>
   <strong>Title:</strong>
-  <%= @item.title %>
-</p>
+  <%= link_to @item.title, @item.amazon_url  %>
+  </p>
 
-<p>
+  <p>
   <strong>Description:</strong>
   <%= @item.description %>
-</p>
+  </p>
 
-<p>
+  <p>
   <strong>Price:</strong>
   <%= @item.price %>
-</p>
+  </p>
 
-<p>
-  <strong>Amazon url:</strong>
-  <%= @item.amazon_url %>
-</p>
-
-<p>
+  <p>
   <strong>Brand:</strong>
-  <%= @item.brand %>
-</p>
+  <%= @item.brand.name %>
+  </p>
 
-<p>
+  <p>
   <strong>Group:</strong>
   <%= @item.group %>
-</p>
+  </p>
 
-<p>
+  <p>
   <strong>Main image:</strong>
-  <%= @item.main_image %>
-</p>
+  <% begin %>
+    <%= image_tag @item.wrapped_image %>
+  <% rescue => ex %>
+    <%= image_tag default_image %>
+  <% end %>
+  </p>
 
-<p>
+  <p>
   <strong>Stocks:</strong>
   <%= @item.stocks %>
-</p>
+  </p>
 
-<p>
+  <p>
   <strong>Active:</strong>
   <%= @item.active %>
-</p>
+  </p>
 
-<%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back', items_path %>
+  <%= link_to 'Edit', edit_item_path(@item) %> |
+  <%= link_to 'Back', items_path %>
+</div>
