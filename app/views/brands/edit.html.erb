@@ -1,6 +1,12 @@
-<h1>Editing Brand</h1>
+<div class="container">
+  <h1>Editing Brand</h1>
 
-<%= render 'form', brand: @brand %>
+  <%= render 'form', brand: @brand %>
 
-<%= link_to 'Show', @brand %> |
-<%= link_to 'Back', brands_path %>
+  <%= link_to 'Show', @brand, class: "btn btn-primary" %> |
+  <%= link_to 'Back', brands_path, class: "btn btn-primary" %>
+  </br>
+  </br>
+  </br>
+  <%= link_to 'Destroy', @item, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+</div>
