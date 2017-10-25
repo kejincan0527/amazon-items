@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171025132243) do
+ActiveRecord::Schema.define(version: 20171025223148) do
 
   create_table "brands", force: :cascade do |t|
     t.string "name"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20171025132243) do
     t.text "description"
     t.integer "price"
     t.text "amazon_url"
-    t.integer "brand_id"
+    t.integer "brand_id", null: false
     t.string "group"
     t.text "main_image"
     t.integer "stocks"
