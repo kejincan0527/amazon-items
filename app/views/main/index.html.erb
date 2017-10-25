@@ -54,7 +54,7 @@
       <div class="col-lg-4 col-sm-6 portfolio-item">
         <div class="card h-100 portfolio-item-body">
           <% begin %>
-            <%= link_to image_tag(brand.items.first.wrapped_image, :class => "card-img-top portfolio-item-img"), controller: "main", action: "brand", brand_id: brand.id %>
+            <%= link_to image_tag(brand.items.where(:active => 1).order("price desc").first.wrapped_image, :class => "card-img-top portfolio-item-img"), controller: "main", action: "brand", brand_id: brand.id %>
           <% rescue => ex %>
             <%= link_to image_tag(default_image, :class => "card-img-top portfolio-item-img"), controller: "main", action: "brand", brand_id: brand.id %>
           <% end %> 
