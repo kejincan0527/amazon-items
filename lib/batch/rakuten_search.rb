@@ -71,6 +71,7 @@ class Batch::RakutenSearch
             price: r_price,
             amazon_url: r_amazon_url,
             brand: brand,
+            ec_site: '楽天市場',
             group: r_group,
             main_image: r_main_image,
             stocks: r_stocks,

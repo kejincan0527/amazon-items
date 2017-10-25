@@ -17,6 +17,7 @@
     <% @items.each do |item| %>
       <div class="col-lg-4 col-sm-6 portfolio-item">
         <div class="card h-100 portfolio-item-body">
+          <div class="card-header"><%= item.ec_site %></div>
           <% begin %>
             <%= link_to image_tag(item.wrapped_image, :class => "card-img-top portfolio-item-img"), controller: "main", action: "detail", item_id: item.id %>
           <% rescue => ex %>

@@ -78,6 +78,7 @@ class Batch::AmazonSearch
           amazon_url: a_item.get('DetailPageURL'),
           brand: brand,
           group: p_brand,
+          ec_site: 'Amazon',
           main_image: a_item.get('LargeImage/URL'),
           stocks: a_item.get('OfferSummary/TotalNew'),
           active: 0
