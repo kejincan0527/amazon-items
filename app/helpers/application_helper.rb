@@ -6,4 +6,8 @@ module ApplicationHelper
   def default_image
     "https://placehold.it/170x170"
   end
+
+  def site_name
+    "ブランド物iPhoneケース"
+  end
 end
