@@ -9,6 +9,7 @@ class MainController < ApplicationController
     @subheader = brand.name
     @list_description = brand.description
     @items = brand.items.where(:active => 1).order("price desc").page(params[:page])
+    $html_title = @subheader + " | " + SITE_NAME
     render :template => 'main/list'
   end
 
@@ -19,5 +20,6 @@ class MainController < ApplicationController
     @item = Item.find(params[:item_id])
     @header = @item.brand.name
     @subheader = @item.wrapped_title
+    $html_title = @subheader + " | " + SITE_NAME
   end
 end
