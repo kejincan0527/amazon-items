@@ -10,10 +10,10 @@ class ItemsController < ApplicationController
     @search_item_active = params[:item_active]
     @items = Item.all
     if @search_brand_name != nil && @search_brand_name.length > 0
-      @items = @items.where(:brand => Brand.find_by_name(@search_brand_name))
+      @items = @items.where(:brand => Brand.where('lower(name) = ?', @search_brand_name.downcase).first)
     end
     if @search_item_title != nil && @search_item_title.length > 0
-      @items = @items.where("title like '%#{@search_item_title}%'")
+      @items = @items.where("lower(title) like '%#{@search_item_title.downcase}%'")
     end
     if @search_item_active != nil && @search_item_active.length > 0
       @items = @items.where(:active => @search_item_active)
