@@ -62,7 +62,11 @@
             <h4 class="card-title">
               <%= link_to brand.name, controller: "main", action: "brand", brand_id: brand.id %>
             </h4>
-            <p class="card-text"></p>
+            <p class="card-text">
+              <% if brand.description != nil %>
+                <%= brand.description.truncate(60) %>
+              <% end %>
+            </p>
           </div>
         </div>
       </div>

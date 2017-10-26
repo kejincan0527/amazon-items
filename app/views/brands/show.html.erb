@@ -6,6 +6,11 @@
   <%= @brand.name %>
   </p>
 
+  <p>
+  <strong>Description:</strong>
+  <%= @brand.description %>
+  </p>
+
   <%= link_to 'Edit', edit_brand_path(@brand), class: "btn btn-primary" %> |
   <%= link_to 'Back', brands_path, class: "btn btn-primary" %>
 </div>

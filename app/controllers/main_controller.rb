@@ -7,6 +7,7 @@ class MainController < ApplicationController
     brand = Brand.find(params[:brand_id])
     @header = 'ブランド'
     @subheader = brand.name
+    @list_description = brand.description
     @items = brand.items.where(:active => 1).order("price desc").page(params[:page])
     render :template => 'main/list'
   end
