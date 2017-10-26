@@ -16,4 +16,11 @@ class Item < ApplicationRecord
       return '---'
     end
   end
+
+  def wrapped_title
+    if overwritten_title != nil && overwritten_title.length > 0
+      return overwritten_title
+    end
+    return title
+  end
 end

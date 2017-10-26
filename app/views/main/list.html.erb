@@ -27,7 +27,7 @@
           <% end %>
           <div class="card-body">
             <h4 class="card-title">
-              <%= link_to item.title.truncate(30), controller: "main", action: "detail", item_id: item.id %>
+              <%= link_to item.wrapped_title.truncate(30), controller: "main", action: "detail", item_id: item.id %>
             </h4>
             <h5><%= item.formatted_price %>円</h5>
             <p class="card-text"><%= item.description.truncate(120) %></p>

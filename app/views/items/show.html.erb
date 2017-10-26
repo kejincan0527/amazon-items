@@ -7,12 +7,17 @@
   </p>
 
   <p>
-  <strong>Title:</strong>
+  <strong>Title:</strong></br>
   <%= link_to @item.title, @item.amazon_url  %>
   </p>
 
   <p>
-  <strong>Description:</strong>
+  <strong>Overwritten title:</strong></br>
+  <%= link_to @item.overwritten_title, @item.amazon_url  %>
+  </p>
+
+  <p>
+  <strong>Description:</strong></br>
   <%= @item.description %>
   </p>
 
