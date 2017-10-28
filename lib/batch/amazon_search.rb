@@ -81,7 +81,7 @@ class Batch::AmazonSearch
           ec_site: 'Amazon',
           main_image: a_item.get('LargeImage/URL'),
           stocks: a_item.get('OfferSummary/TotalNew'),
-          active: 0
+          active: 1
         )
       else
         puts 'ASIN: ' + asin + ' has already existed.'

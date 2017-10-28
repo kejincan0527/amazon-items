@@ -75,7 +75,7 @@ class Batch::RakutenSearch
             group: r_group,
             main_image: r_main_image,
             stocks: r_stocks,
-            active: 0
+            active: 1
           )
         else
           puts 'ITEM.CODE: ' + r_asin + ' has already existed.'
