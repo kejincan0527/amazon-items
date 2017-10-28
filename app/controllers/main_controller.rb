@@ -1,6 +1,7 @@
 class MainController < ApplicationController
   def index
     @brands = Brand.all
+    @html_meta_desription = "「ブランド物iPhoneケース」は、ブランド物のiPhoneケースを紹介するサイトです。";
   end
 
   def brand
@@ -10,6 +11,7 @@ class MainController < ApplicationController
     @list_description = brand.description
     @items = brand.items.where(:active => 1).order("price desc").page(params[:page])
     @html_title = @subheader + " | "
+    @html_meta_desription = "「" + brand.name + "」のiphoneケースを紹介します。"
     render :template => 'main/list'
   end
 
@@ -21,5 +23,6 @@ class MainController < ApplicationController
     @header = @item.brand.name
     @subheader = @item.wrapped_title
     @html_title = @subheader + " | "
+    @html_meta_desription = "「" + @item.ec_site + "」 の「ストア：" + @item.group + "」が販売する 「" + @item.brand.name + "」 のiPhoneケース." 
   end
 end
