@@ -46,8 +46,9 @@ class Batch::RakutenSearch
       search_keyword = brand.name.gsub(/ . /, ' ').gsub(/^. /, '').gsub(/ .$/, '')
       puts "SEARCH KEYWORD is : " + search_keyword
       r_items = RakutenWebService::Ichiba::Item.search(
-        keyword: 'iphoneケース ' + search_keyword,
-        imageFlag: 1
+        keyword: 'iphone ' + search_keyword,
+        imageFlag: 1,
+        genreId: 560271 # スマートフォンケース
       )
       r_items.each do |r_item|
         r_asin = r_item.code
