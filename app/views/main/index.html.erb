@@ -51,7 +51,7 @@
 
   <div class="row">
     <% active_brands.each do |brand| %>
-      <div class="col-lg-4 col-sm-6 portfolio-item">
+      <div class="col-lg-4 portfolio-item">
         <div class="card h-100 portfolio-item-body">
           <% begin %>
             <%= link_to image_tag(brand.items.where(:active => 1).order("price desc").first.wrapped_image, :class => "card-img-top portfolio-item-img"), controller: "main", action: "brand", brand_id: brand.id %>
